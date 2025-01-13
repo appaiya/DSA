@@ -24,6 +24,9 @@ function helper(arr, start, end) {
     let pivotIndex = Math.floor(Math.random() * (end - start + 1) + start);
     swap(arr, start, pivotIndex);
     
+    /**
+     * QUICK SORT with Lomuto partitioning starts here 
+     */ 
     let small = start;
     
     for(let big = start+1; big <= end; big++) {

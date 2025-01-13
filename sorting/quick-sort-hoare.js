@@ -21,8 +21,12 @@ function helper(arr, start, end) {
     if(start >= end) {
         return;
     }
-    let pivotIndex = Math.floor(Math.random() * (end - start + 1) + start);
+    let pivotIndex = Math.floor(Math.random() * (end - start + 1) + start); // random index to choose pivot
     swap(arr, start, pivotIndex)
+
+    /**
+     * QUICK SORT with HOARE partitioning starts here 
+     */
     let smaller = start + 1;
     let bigger = end;
     
