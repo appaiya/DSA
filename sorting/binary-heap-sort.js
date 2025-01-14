@@ -4,13 +4,12 @@
  * @return {list_int32}
  */
 function heap_sort(arr) {
-    // Write your code here.
     
     const n = arr.length;
     const treeHeight = Math.floor(n/2) - 1; 
     
     // Build Max Heap 
-    for(let i = treeHeight; i > 0; i--) {
+    for(let i = treeHeight; i >= 0; i--) {
         helper(arr, n, i);
     }
     
