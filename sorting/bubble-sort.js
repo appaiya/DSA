@@ -3,7 +3,6 @@
  * @return {list_int32}
  */
 function bubble_sort(arr) {
-    // Write your code here.
     
     for(let i = 0; i < arr.length; i++) {
         for(let j = arr.length-1; j > i; j--) {

@@ -10,9 +10,7 @@ function selection_sort(arr) {
             if(arr[j] < minValue) {
                 minValue = arr[j];
                 minIndex = j;
-                let temp = arr[i];
-                arr[i] = arr[minIndex];
-                arr[minIndex] = temp;
+                [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
             }
         }
     }
