@@ -4,19 +4,26 @@
  * @return {list_int32}
  */
 function heap_sort(arr) {
+
+    console.log("INPUT", arr);
     
     const n = arr.length;
     const treeHeight = Math.floor(n/2) - 1; 
+
+    console.log("treeHeight", treeHeight)
     
     // Build Max Heap 
     for(let i = treeHeight; i >= 0; i--) {
         helper(arr, n, i);
     }
+
+    console.log("Post built max heap", arr);
     
     // Get the elements from Heap
     for(let j = n-1; j > 0; j--) {
         swap(arr, 0, j);
         helper(arr, j, 0)
+        console.log(`Iteration ${j}`, arr);
     }
     
     return arr;
@@ -52,3 +59,7 @@ function swap(arr, first, second) {
     arr[first] = arr[second];
     arr[second] = temp;
 }
+
+let r = heap_sort([5, 8, 3, 9, 4, 1, 7]);
+
+console.log("OUT", r);
