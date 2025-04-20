@@ -1,5 +1,13 @@
 
 /**
+ * 
+ * Given an array of integers, find the k-th largest number in it.
+ * 
+ * Implemented using quick sort / quick select approach
+ * 
+ * Input: [5, 1, 10, 3, 2], k = 2
+ * Output: 5
+ * 
  * @param {list_int32} numbers
  * @param {int32} k
  * @return {int32}
