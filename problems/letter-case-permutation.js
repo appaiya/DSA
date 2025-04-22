@@ -22,7 +22,7 @@ function letter_case_permutations(s) {
             return;
         }
         
-        if(isNaN(str[i])) {
+        if(isNaN(s[i])) {
             // i is string
             helper(`${slate}${s[i].toLowerCase()}`, i+1)
             helper(`${slate}${s[i].toUpperCase()}`, i+1)
