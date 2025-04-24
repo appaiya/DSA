@@ -36,3 +36,39 @@ function letter_case_permutations(s) {
     
     return result;
 }
+
+
+/**
+ * letter case permutation with mutate solution
+ */
+
+function letterCase(str) {
+    let result = [];
+
+    function helper(index, slate) {
+
+        if(index === str.length) {
+            result.push(slate.join(""));
+            return;
+        }
+
+        if(isNaN(str[index])) {
+            // str[index] is string
+            slate.push(str[i].toLowerCase());
+            helper(index+1, slate);
+            slate.pop();
+            slate.push(str[i].toUpperCase());
+            helper(index+1, slate);
+            slate.pop();
+        } else {
+            // str[index] is number
+            slate.push(str[i]);
+            helper(index+1, slate);
+            slate.pop();
+        }
+    }
+
+    helper(0, []);
+
+    return result;
+}
