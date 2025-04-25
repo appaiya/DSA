@@ -29,3 +29,35 @@ function get_permutations(arr) {
     
     return result;
 }
+
+/**
+ * find permutation for the given numer array values with mutable solution
+ * 
+ * @param {*} nums number array input e.g., [1, 2, 3]
+ */
+function getPermutation(nums) {
+    let result = [];
+
+    function helper(nums, i, slate) {
+        if(i === nums.length) {
+            result.push([...slate]);
+            return;
+        } else {
+            for(let pick = i; pick < nums.length; pick++) {
+                // console.log("Before swap-->", nums[pick], nums[i]);
+                [nums[pick], nums[i]] = [nums[i], nums[pick]];
+                // console.log("After swap-->", nums[pick], nums[i])
+                slate.push(nums[i]);
+                helper(nums, i+1, slate);
+                slate.pop();
+                [nums[pick], nums[i]] = [nums[i], nums[pick]];
+            }
+        }
+    }
+    helper(nums, 0, []);
+
+    return result;
+}
+
+let per = getPermutation([1,2,1]);
+console.log("OUTPUT", per)
