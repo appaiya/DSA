@@ -1,4 +1,5 @@
 function subsetSum(nums, target) {
+    nums.sort((a,b) => a - b);
     let result = [];
 
     function helper(sum, i, slate) {
@@ -11,16 +12,20 @@ function subsetSum(nums, target) {
             return;
         }
 
-        helper(sum, i+1, slate); // exclude
+        for (let j = i; j < nums.length; j++) {
+            // skip duplicates
+            if (j > i && nums[j] === nums[j - 1]) {
+                continue;
+            }
 
-        // include
-        slate.push(nums[i]);
-        helper(sum+nums[i], i+1, slate);
-        slate.pop();
+            slate.push(nums[j]);
+            helper(sum + nums[j], j + 1, slate);
+            slate.pop();
+        }
     }
 
     helper(0, 0, []);
     return result;
 }
 
-subsetSum([1,2,3,4,5], 7);
+console.log(subsetSum([10,1,2,7,6,1,5], 8));
