@@ -5,19 +5,36 @@
 var solveNQueens = function(n) {
     let result = [];
     function helper(nums, i, slate) {
-
-        // Back tracking case
+        
+        /**
+         * Back tracking case
+         * 
+         * If last queen on the slate has a diagonal conflict with any of the earlier queens then return.
+         * 
+         * To check the diagonal conflict, 
+         * last queen's row number -> i-1 ------ I
+         * last queen's col number -> slate[i-1] ------ II
+         * 
+         * current index queen's row number -> qIndex ------ III
+         * current index queen's col number -> slate[qIndex] ------ IV
+         * 
+         * So, check the diagonal conflict --> (I - III) === (II - IV)
+         * 
+         * formula is -> ((i-1) - qIndex) === Math.abs(slate[i-1] - slate[qIndex])
+         */
         for(let qIndex = 0; qIndex < i-1; qIndex++) {
             if(((i-1) - qIndex) === Math.abs(slate[i-1] - slate[qIndex])) {
                 return;
             }
         }
 
+        // Base case - Leaf node
         if(i === nums.length) {
             result.push(convert([...slate]));
             return;
         }
 
+        // Recursive case - Internal node
         for(let pick = i; pick < nums.length; pick++) {
             [nums[pick], nums[i]] = [nums[i], nums[pick]];
             slate.push(nums[i]);
@@ -28,6 +45,11 @@ var solveNQueens = function(n) {
 
     }
 
+    /**
+     * Output for this problem is [".Q..."], this function converts the index value to "Q".
+     *  
+     * @returns array of strings
+     */
     function convert(nums) {
         let tempList = [];
 
