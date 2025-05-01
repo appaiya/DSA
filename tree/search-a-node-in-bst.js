@@ -9,6 +9,9 @@ const BinaryTreeNode = class {
 };
 */
 /**
+ * 
+ * TC: O(log n)
+ * SC: O(1)
  * @param {BinaryTreeNode_int32} root
  * @param {int32} value
  * @return {bool}

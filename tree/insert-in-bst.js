@@ -4,6 +4,9 @@
  * 
  * Input: [7,5,9]
  * 
+ * TC: O(log n)
+ * SC: O(1)
+ * 
  * @param {list_int32} values
  * @return {BinaryTreeNode_int32}
  */
