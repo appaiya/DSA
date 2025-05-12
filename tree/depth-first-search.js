@@ -25,3 +25,31 @@ function preorder(root) {
     helper(root);
     return result;
 }
+
+function postorder(root) {
+    let result = [];
+    
+    function helper(node) {
+        if(node === null) return;
+        helper(node.left);
+        helper(node.right);
+        result.push(node.value); // Post order traversal
+    }
+    
+    helper(root);
+    return result;
+}
+
+function inorder(root) {
+    let result = [];
+    
+    function helper(node) {
+        if(node === null) return;
+        helper(node.left);
+        result.push(node.value); // In order traversal
+        helper(node.right);
+    }
+    
+    helper(root);
+    return result;
+}
