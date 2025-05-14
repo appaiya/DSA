@@ -37,3 +37,27 @@ var zigzagLevelOrder = function(root) {
 
     return result;
 };
+
+var zigzagLevelOrder2 = function(root) {
+    let result = [];
+    if(!root) return result;
+    let q = [root];
+    let index = 0;
+    let rightToLeft = true;
+
+    while(index < q.length) {
+        rightToLeft = !rightToLeft;
+        let level = q.length - index;
+        let tempList = [];
+        for(let i = 0; i < level; i++) {
+            let n = q[index++];
+            rightToLeft ? tempList.unshift(n.val) : tempList.push(n.val);
+            if(n.left) q.push(n.left);
+            if(n.right) q.push(n.right);
+        }
+        result.push(tempList);
+    }
+
+
+    return result;
+};
